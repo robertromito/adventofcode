@@ -43,6 +43,15 @@ class VentLine:
         else:
             raise Exception(f"line is not straight: {self}")
 
+def visualize(points):
+    print(points)
+    max_x = max([c[0] for c in points.keys()]) + 1
+    max_y = max([c[1] for c in points.keys()]) + 1
+    for y in range(max_y):
+        for x in range(max_x):
+            print(points.get((x,y), '.'), end="")
+        print("")
+    print("")
 
 def do_part1(input_file):
     print(f"{input_file:-^40}")
@@ -52,6 +61,7 @@ def do_part1(input_file):
         for c in vl.get_points():
             grid[c] = grid.get(c, 0) + 1
     answer = len([p for p in grid.values() if p >= 2])
+    #visualize(grid)
     print(
         f"[{datetime.now()}] Number of points with at least 2 overlapping lines: {answer}"
     ) 
