@@ -25,17 +25,18 @@ def do_part2(input_file):
 
     for day in range(256):
         new_lantern_fish = lantern_fish_school[0]
-        lantern_fish_school[0] = lantern_fish_school[1]
-        lantern_fish_school[1] = lantern_fish_school[2]
-        lantern_fish_school[2] = lantern_fish_school[3]
-        lantern_fish_school[3] = lantern_fish_school[4]
-        lantern_fish_school[4] = lantern_fish_school[5]
-        lantern_fish_school[5] = lantern_fish_school[6]
-        lantern_fish_school[6] = lantern_fish_school[7] + new_lantern_fish
-        lantern_fish_school[7] = lantern_fish_school[8]
-        lantern_fish_school[8] = new_lantern_fish
+        for age in range(9):
+            match age:
+                case 8:
+                    lantern_fish_school[8] = new_lantern_fish
+                case 6:
+                    lantern_fish_school[6] = lantern_fish_school[7] + new_lantern_fish
+                case _:
+                    lantern_fish_school[age] = lantern_fish_school[age + 1]
 
-        debug(f"day {day}: total: {sum(lantern_fish_school)} created: {new_lantern_fish}")
+        debug(
+            f"day {day}: total: {sum(lantern_fish_school)} created: {new_lantern_fish}"
+        )
 
     answer = sum(lantern_fish_school)
     print(f"[{datetime.now()}] lanternfish count after 80 days: {answer}")

@@ -25,9 +25,8 @@ def do_part2(input_file):
                 lantern_fish_school.append(8)
             else:
                 lantern_fish_school[f] = lantern_fish_school[f] - 1
-                
-        debug(f"After day {i}: {len(lantern_fish_school)}")
 
+        debug(f"After day {i}: {len(lantern_fish_school)}")
 
     answer = len(lantern_fish_school)
     print(f"[{datetime.now()}] lanternfish count after 80 days: {answer}")
