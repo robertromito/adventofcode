@@ -1,7 +1,7 @@
 from pprint import pprint
 
 DAY = 7
-PART = 1
+PART = 2
 
 TOTAL_DISK_SPACE = 70000000
 NEEDED_FREE_SPACE = 30000000
